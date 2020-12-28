@@ -1,0 +1,82 @@
+' Gambas class file
+
+Public ConjuntoPalabras As String[]
+Public Iant As Integer = 0
+Public contador As Integer = -1
+
+Public Sub Form_Open()
+
+    Randomize
+    Me.Title = "Aleatorias " & Application.version
+    ConjuntoPalabras = Split(File.Load("ListaPalabras.txt"), "\n")
+    Settings.Read(Me)
+
+    ConjuntoPalabras = ListaAleatoria(ConjuntoPalabras)
+
+    ButtonAleatorio_Click()
+
+End
+
+Public Sub Form_Close()
+
+    Settings.Write(Me)
+
+End
+
+Public Sub ButtonCopiar_Click()
+
+    Clipboard.Copy(Label1.text)
+
+End
+
+Public Sub ButtonAleatorio_Click()
+
+    contador += 1
+
+    If contador > ConjuntoPalabras.count - 1 Then
+        contador = 0
+        ConjuntoPalabras = ListaAleatoria(ConjuntoPalabras)
+    Endif
+
+    Label1.text = ConjuntoPalabras[contador]
+
+    ButtonCopiar_Click()
+
+End
+
+Public Sub Label1_MouseUp()
+
+    ButtonAleatorio_Click()
+
+End
+
+Public Function ListaAleatoria(lista As String[]) As String[]
+
+    Dim i As Integer
+    Dim listaAleatoria As New String[]
+    Dim repite As Integer
+
+    Randomize
+    i = Rnd(0, lista.max)
+
+    'repite tantas veces, hasta vaciar la lista
+
+    For repite = 0 To lista.max
+
+        i = Rnd(0, lista.max + 1)
+
+        Try ListaAleatoria.Add(lista.Extract(i)[0])
+
+    Next
+
+    If lista.max = 0 Then ListaAleatoria.Add(lista[0])
+
+    Return ListaAleatoria
+
+End
+
+Public Sub Label1_Enter()
+
+    ButtonAleatorio_Click()
+
+End

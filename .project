@@ -1,0 +1,25 @@
+# Gambas Project File 3.0
+Title=aletariopalabras
+Startup=FMain
+Icon=letra aleatoria.png
+Version=0.0.10
+Component=gb.image
+Component=gb.gui.qt
+Component=gb.form
+Component=gb.settings
+Description="Sistema para dar palabras aleatorias sin repetirlas"
+Authors="jsbsan"
+TabSize=4
+Language=en_US
+Maintainer=mint
+Address=mint@mint-SSD
+License=General Public License
+PackageName=aletariopalabras-0.0.10
+PackageVersion=2
+CreateEachDirectory=1
+RuntimeVersion="3.10"
+Packager=1
+Systems=debian
+Menus=debian:"Applications/Education"
+Categories=debian:"Education"
+Groups=debian:"admin"

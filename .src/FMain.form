@@ -1,0 +1,24 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,66,20)
+  Icon = Picture["letra aleatoria.png"]
+  Arrangement = Arrange.Fill
+  { ButtonAleatorio Button
+    MoveScaled(0,0,5,4)
+    Visible = False
+    Picture = Picture["letra aleatoria32x32.png"]
+  }
+  { Label1 Label
+    MoveScaled(5,0,31,4)
+    Background = &HFF7F00&
+    Expand = True
+    Alignment = Align.Center
+    Border = Border.Plain
+  }
+  { ButtonCopiar Button
+    MoveScaled(32,0,4,4)
+    Visible = False
+    Picture = Picture["icon:/22/copy"]
+  }
+}
